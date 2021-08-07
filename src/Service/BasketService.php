@@ -4,6 +4,7 @@ namespace App\Service;
 
 use App\Entity\Item;
 use App\Entity\Order\OrderPrice;
+use App\Entity\Promotion;
 
 class BasketService
 {
@@ -11,6 +12,9 @@ class BasketService
     {
     }
 
+    /**
+     * @param OrderPrice $order
+     */
     public function calculateOrderPrice(OrderPrice &$order): void
     {
         $ht = 0;
@@ -20,19 +24,22 @@ class BasketService
 
         /* @var $item Item */
         foreach ($order->getItems() as $item) {
-            $ht += $item->getProduct()->getPrice();
-            /* il faudra créer une nouvelle fonction lorsque la TVA sera plus compliqué à calculé */
-            $tvaTotal += $item->getProduct()->getPrice() * $item->getProduct()->getBrand()->getTva()->getValue() / 100;
+            $ht += $item->getProduct()->getPrice() * $item->getQuantity();
+            // il faudra créer une nouvelle fonction lorsque la TVA sera plus compliqué à calculer
+            $tvaTotal += ($item->getProduct()->getPrice() * $item->getProduct()->getBrand()->getTva()->getValue() / 100)
+                * $item->getQuantity();
         }
         $order->setHt($ht);
-        /* je pars du principe qu'il n'y a pas de TVA sur les frais de port */
+        // je pars du principe qu'il n'y a pas de TVA sur les frais de port
         $htTotal = $ht + $order->getHtShippingFees();
         $order->setHtTotal($htTotal);
         $order->setTvaTotal($tvaTotal);
-        $ttcTotal = $order->getHtTotal() + $order->getTvaTotal();
-        $order->setTtcTotal($ttcTotal);
+        $this->calculateTtcWithPromotions($order);
     }
 
+    /**
+     * @param OrderPrice $order
+     */
     private function calculateShippingFees(OrderPrice &$order): void
     {
         $numberItemByBrand = [];
@@ -51,11 +58,30 @@ class BasketService
         foreach ($numberItemByBrand as $brandItems) {
             if ($brandItems[1]->getSlice() === null) {
                 $htShippingFees += $brandItems[1]->getValue();
-            }else {
+            } else {
                 $htShippingFees += ceil($brandItems[0]/$brandItems[1]->getSlice()) * $brandItems[1]->getValue();
             }
         }
         $order->setHtShippingFees($htShippingFees);
     }
 
+    /**
+     * @param OrderPrice $order
+     */
+    private function calculateTtcWithPromotions(OrderPrice &$order): void
+    {
+        $ttcTotal = $order->getHtTotal() + $order->getTvaTotal();
+        $promotions = $order->getPromotions();
+        $percentage = 0;
+        // j'additionne les pourcentages (plus rapide que de faire le calcule à chaque fois sur le TTC total)
+        /* @var $promo Promotion */
+        foreach ($promotions as $promo) {
+            if ($promo->getMinAmount() <= $ttcTotal) {
+                $percentage += $promo->getReduction();
+                $promo->setIsApplied(true);
+            }
+        }
+        $ttcTotal = $ttcTotal - ($ttcTotal * $percentage / 100);
+        $order->setTtcTotal($ttcTotal);
+    }
 }

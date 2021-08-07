@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Entity;
-
 
 class Item
 {
@@ -62,8 +60,4 @@ class Item
         $this->quantity = $quantity;
         return $this;
     }
-
-
-
-
 }

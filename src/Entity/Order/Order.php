@@ -1,8 +1,6 @@
 <?php
 
-
 namespace App\Entity\Order;
-
 
 use App\Entity\Item;
 
@@ -46,8 +44,8 @@ class Order
      */
     public function addItem(Item $item): Order
     {
-        //remove item if it already exists
-        /* @var $item $it */
+        // supprime si l'item existe déjà
+        /* @var Item $it */
         foreach ($this->items as $key => $it) {
             if ($it->getProduct()->getId() === $item->getProduct()->getId()) {
                 unset($this->items[$key]);
@@ -58,5 +56,4 @@ class Order
 
         return $this;
     }
-
 }

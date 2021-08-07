@@ -1,8 +1,8 @@
 <?php
 
-
 namespace App\Entity\Order;
 
+use App\Entity\Promotion;
 
 class OrderPrice extends Order
 {
@@ -54,8 +54,7 @@ class OrderPrice extends Order
         float $htTotal = 0,
         float $tvaTotal = 0,
         float $ttcTotal = 0
-    )
-    {
+    ) {
         parent::__construct($items);
         $this->ht = $ht;
         $this->promotions = $promotions;
@@ -98,6 +97,25 @@ class OrderPrice extends Order
     public function setPromotions(array $promotions): OrderPrice
     {
         $this->promotions = $promotions;
+        return $this;
+    }
+
+    /**
+     * @param Promotion $promotion
+     * @return OrderPrice
+     */
+    public function addPromotion(Promotion $promotion): OrderPrice
+    {
+        // supprime si la promotion existe déjà
+        /* @var Promotion $promo */
+        foreach ($this->promotions as $key => $promo) {
+            if ($promo->getId() === $promotion->getId()) {
+                unset($this->promotions[$key]);
+                break;
+            }
+        }
+        $this->promotions[] = $promotion;
+
         return $this;
     }
 
@@ -172,7 +190,4 @@ class OrderPrice extends Order
         $this->ttcTotal = $ttcTotal;
         return $this;
     }
-
-
-
 }

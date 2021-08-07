@@ -4,7 +4,6 @@ namespace App\Entity;
 
 class Brand
 {
-
     /**
      * @var int
      */
@@ -97,7 +96,7 @@ class Brand
     /**
      * @return ShippingFees
      */
-    public function getShippingFees(): float
+    public function getShippingFees(): ShippingFees
     {
         return $this->shippingFees;
     }

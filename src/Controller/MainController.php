@@ -26,12 +26,12 @@ class MainController extends AbstractController
         $brandFarmitoo = new Brand(1, 'Farmitoo', $tvaFarmitoo, $shippingFeesFarmitoo);
         $brandGallagher = new Brand(2, 'Gallagher', $tvaGallagher, $shippingFeesGallagher);
 
-        $product1 = new Product(1,'Cuve à gasoil', 250000, $brandFarmitoo);
-        $product2 = new Product(2,'Nettoyant pour cuve', 5000, $brandFarmitoo);
-        $product3 = new Product(3,'Piquet de clôture', 1000, $brandGallagher);
+        $product1 = new Product(1, 'Cuve à gasoil', 250000, $brandFarmitoo);
+        $product2 = new Product(2, 'Nettoyant pour cuve', 5000, $brandFarmitoo);
+        $product3 = new Product(3, 'Piquet de clôture', 1000, $brandGallagher);
 
         // je pars du principe que les promotions sont en pourcentage
-        $promotion1 = new Promotion(50000, 8, false);
+        $promotion1 = new Promotion(1, 50000, 8, false);
 
         // Je passe une commande avec
         // Cuve à gasoil x1
@@ -47,11 +47,13 @@ class MainController extends AbstractController
         $order->addItem($item2);
         $order->addItem($item3);
 
+        $order->addPromotion($promotion1);
+
         $basketService = new BasketService();
         $basketService->calculateOrderPrice($order);
 
         return $this->render('basket/basket.html.twig', [
-            $order
+            "order" => $order
         ]);
     }
 }

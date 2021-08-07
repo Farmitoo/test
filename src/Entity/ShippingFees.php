@@ -17,9 +17,9 @@ class ShippingFees
     /**
      * ShippingFees constructor.
      * @param float $value
-     * @param int $slice
+     * @param int|null $slice
      */
-    public function __construct(float $value, int $slice)
+    public function __construct(float $value, ?int $slice)
     {
         $this->value = $value;
         $this->slice = $slice;
@@ -44,18 +44,18 @@ class ShippingFees
     }
 
     /**
-     * @return int
+     * @return int|null
      */
-    public function getSlice(): int
+    public function getSlice(): ?int
     {
         return $this->slice;
     }
 
     /**
-     * @param int $slice
+     * @param int|null $slice
      * @return ShippingFees
      */
-    public function setSlice(int $slice): ShippingFees
+    public function setSlice(?int $slice): ShippingFees
     {
         $this->slice = $slice;
         return $this;

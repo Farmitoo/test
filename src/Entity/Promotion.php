@@ -1,11 +1,14 @@
 <?php
 
-
 namespace App\Entity;
-
 
 class Promotion
 {
+    /**
+     * @var int
+     */
+    protected $id;
+
     /**
      * @var int
      */
@@ -21,16 +24,44 @@ class Promotion
      */
     protected $freeDelivery;
 
+    // pour savoir si la promotion est effectuée ou non
     /**
+     * @var bool
+     */
+    protected $isApplied;
+
+    /**
+     * @param int $id
      * @param int $minAmount
      * @param int $reduction
      * @param bool $freeDelivery
+     * @param bool $isApplied
      */
-    public function __construct(int $minAmount, int $reduction, bool $freeDelivery)
+    public function __construct(int $id, int $minAmount, int $reduction, bool $freeDelivery, bool $isApplied = false)
     {
+        $this->id = $id;
         $this->minAmount = $minAmount;
         $this->reduction = $reduction;
         $this->freeDelivery = $freeDelivery;
+        $this->isApplied = $isApplied;
+    }
+
+    /**
+     * @return int
+     */
+    public function getId(): int
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param int $id
+     * @return Promotion
+     */
+    public function setId(int $id): Promotion
+    {
+        $this->id = $id;
+        return $this;
     }
 
     /**
@@ -87,5 +118,21 @@ class Promotion
         return $this;
     }
 
+    /**
+     * @return bool
+     */
+    public function isApplied(): bool
+    {
+        return $this->isApplied;
+    }
 
+    /**
+     * @param bool $isApplied
+     * @return Promotion
+     */
+    public function setIsApplied(bool $isApplied): Promotion
+    {
+        $this->isApplied = $isApplied;
+        return $this;
+    }
 }

@@ -1,0 +1,138 @@
+body {
+    background-color: #daf6bb;
+}
+.container {
+    display: grid;
+    grid-template-columns: 0.3fr 2.4fr 0.3fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". content .";
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 0.2fr 0.5fr 0.3fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "header"
+    "body"
+    "footer";
+    grid-area: content;
+}
+
+.header { grid-area: header; }
+
+.body {
+    display: block;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "item";
+    grid-area: body;
+}
+
+.item {
+    background-color: #ffffff;
+    border: solid 1px #cce2c9;
+    border-radius: 7px;
+    box-shadow: 2px 4px 9px #b8d0b4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "image title brand price quantity option";
+    grid-area: item;
+    margin-bottom: 10px;
+}
+
+.header-item {
+    font-size: 20px;
+}
+
+.image img {
+    margin: 5px;
+    width: 150px;
+}
+
+.image {
+    grid-area: image;
+}
+
+.title {
+    grid-area: title;
+    margin: auto 0;
+}
+
+.brand {
+    grid-area: brand;
+    margin: auto 0;
+}
+
+.price {
+    grid-area: price;
+    margin: auto 0;
+}
+
+.item:not(.header-item) > .price {
+    font-weight: 600;
+}
+
+.quantity {
+    grid-area: quantity;
+    margin: auto 0;
+}
+
+.option {
+    grid-area: option;
+    margin: auto 0;
+}
+
+.option svg {
+    color: red;
+    cursor: pointer;
+}
+
+.footer {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    "total"
+    ".";
+    grid-area: footer;
+}
+
+.total {
+    display: grid;
+    grid-template-columns: 0.8fr 0.4fr;
+    grid-template-rows: 1fr;
+    gap: 0px 0px;
+    grid-auto-flow: row;
+    grid-template-areas:
+    ". total-container";
+    grid-area: total;
+}
+
+.total-container {
+    grid-area: total-container;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 7px;
+    border: solid 1px #cce2c9;
+    box-shadow: 2px 4px 9px #b8d0b4;
+}
+
+.total-ttc {
+    font-size: 25px;
+    font-weight: bold;
+}

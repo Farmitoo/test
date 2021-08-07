@@ -32,7 +32,7 @@ class Product
      */
     public function __construct(int $id, string $title, int $price, Brand $brand)
     {
-        /* ajout d'un id pour bien différencier un produit (le titre n'est pas assez unique) */
+        // ajout d'un id pour bien différencier un produit (le titre n'est pas assez unique) */
         $this->id = $id;
         $this->title = $title;
         $this->price = $price;
@@ -110,6 +110,4 @@ class Product
         $this->brand = $brand;
         return $this;
     }
-
-
 }
