@@ -1,0 +1,45 @@
+<div class="row">
+    <div class="col-4 col-md-3">
+        <div class="img-block">
+            <img src="" data-src="" alt="{{ item.product.title }}">
+        </div>
+    </div>
+    <div class="col-8 col-md-9 d-flex flex-column">
+        <div class="row mb-4">
+            <div class="col-12 col-md-8">
+                <h3 class="title">
+                    <a href="#">{{ item.product.title }}</a>
+                </h3>
+                <span class="brand">{{ item.product.brand }}</span>
+                <div class="product-reference">{{ 'Référence: '|trans ~ item.product.reference }}</div>
+            </div>
+            <div class="col-12 col-md-4">
+                <span class="d-flex d-md-block justify-content-between align-items-end text-right">
+                    <span class="price">{{ (item.priceHT|number_format(0, ',', ' ') ~ ' € HT')|trans }}</span>
+                </span>
+            </div>
+        </div>
+        <div class="d-none d-md-block">
+            <div class="row mb-3">
+                <div class="col-12 col-md-8">
+                    <span class="fw-bold mb-2 d-block">{{ 'Quantité'|trans }}</span>
+                    <div class="quantity mb-3">
+                        <a class="quantity-less {% if item.quantity is same as(1) %}quantity-disabled{% endif %}" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-dash-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M2 8a.5.5 0 0 1 .5-.5h11a.5.5 0 0 1 0 1h-11A.5.5 0 0 1 2 8Z"/>
+                            </svg>
+                        </a>
+                        <div data-value="1">{{ item.quantity }}</div>
+                        <a class="quantity-more" href="#">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-lg" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd" d="M8 2a.5.5 0 0 1 .5.5v5h5a.5.5 0 0 1 0 1h-5v5a.5.5 0 0 1-1 0v-5h-5a.5.5 0 0 1 0-1h5v-5A.5.5 0 0 1 8 2Z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <a href="#" class="small text-decoration-underline float-right">{{ 'Supprimer'|trans }}</a>
+        </div>
+    </div>
+</div>
+<hr>

@@ -1,0 +1,63 @@
+.btn {
+  background-color: transparent;
+  border: 2px solid transparent;
+  border-radius: 5px;
+  color: #3f3f40;
+  display: inline-block;
+  font-size: .9rem;
+  font-weight: bolder;
+  line-height: 2;
+  padding: .7rem 1rem;
+  text-align: center;
+  vertical-align: middle;
+}
+
+.btn-valid {
+  background-color: #38573b;
+  border-color: #38573b;
+  color: #fff;
+  border-radius: calc(2em + 1.5rem + 3px);
+  padding: .7rem 1.5rem;
+}
+
+.btn-valid:focus, .btn-valid:hover {
+  background-color: #29402b;
+  border-color: #243826;
+  color: #fff;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #29402b;
+  border-color: #243826;
+}
+
+.btn-check:checked + .btn-primary, .btn-check:active + .btn-primary, .btn-primary:active, .btn-primary.active, .show > .btn-primary.dropdown-toggle {
+  color: #fff;
+  background-color: #29402b;
+  border-color: #243826;
+}
+
+input[type=button].btn-block, input[type=submit].btn-block {
+  width: 100%;
+}
+
+.btn-primary {
+  background-color: #37a041;
+  border-color: #37a041;
+  color: #fff;
+}
+
+.btn-block {
+  display: block;
+  width: 100%;
+}
+
+.btn-block+.btn-block {
+  margin-top: .5rem;
+}
+
+.btn-outline {
+  border-color: #38573b;
+  color: #38573b;
+}
