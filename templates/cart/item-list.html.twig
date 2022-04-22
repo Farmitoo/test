@@ -1,0 +1,21 @@
+<div class="col-12 col-md-8">
+    <h2 class="title d-none d-md-block">{{ 'Mes articles'|trans }}</h2>
+    <div class="card card-shadow mb-3">
+        <div class="card-body">
+            <div>
+                {% for item in items %}
+                    {% include 'cart/item.html.twig' with {'item': item} %}
+                {% endfor %}
+
+                <div class="d-md-flex justify-content-between">
+                    <div>{{ 'Livraison estimée  le <strong>18 avril 2022</strong>'|trans|raw }}</div>
+                    <div>
+                        <hr class="d-md-none">
+                        {{ 'Frais de port :'|trans }} <span class="fw-bold">7,48 €</span> <i class="f-icon f-icon-info"></i>
+                    </div>
+                </div>
+                <a href="#" class="text-decoration-underline float-right d-md-none">{{ 'Supprimer'|trans }}</a>
+            </div>
+        </div>
+    </div>
+</div>

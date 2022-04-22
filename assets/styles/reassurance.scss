@@ -1,0 +1,72 @@
+.reassurance {
+  list-style: none;
+  margin-left: 1.4rem;
+}
+
+.reassurance li {
+  margin: 0.5rem 0;
+
+  strong {
+    color: #37a041;
+  }
+
+  > svg {
+    color: rgb(55, 160, 65);
+    font-weight: 700;
+    margin-left: -1.3rem;
+    vertical-align: middle;
+    width: 1.3rem;
+  }
+}
+
+.reassurance-order {
+  font-size: 1rem;
+  border-radius: 4px;
+  padding: 1rem 1.5rem;
+  color: #38573b !important;
+}
+
+.reassurance-order-icon {
+  color: rgb(57, 88, 60);
+  font-size: 2.3rem;
+  height: 80px;
+  min-width: 80px;
+  width: 80px;
+  background: transparent;
+  border-width: 2px;
+  border-style: solid;
+  border-color: rgb(55, 160, 65);
+  border-image: initial;
+  border-radius: 50%;
+}
+
+ul.payments {
+  text-align: left;
+}
+
+ul.payments > li {
+  display: inline-block;
+  list-style: none;
+  text-align: center;
+}
+
+ul.payments > li img {
+  margin-right: 5%;
+  max-height: 20px;
+  max-width: 90%;
+}
+
+@media (min-width: 992px) {
+  .reassurance {
+    margin-left: 1.75rem;
+  }
+
+  .reassurance-order {
+    padding: 0;
+
+    ul {
+      max-width: 80%;
+      margin: 0 auto;
+    }
+  }
+}

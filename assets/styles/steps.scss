@@ -1,0 +1,35 @@
+.step {
+  color:#38573b;
+  display: flex !important;
+  align-items: center !important;
+
+  .step-index {
+    border:2px solid #76b852;
+    border-radius:50%;
+    display:inline-block;
+    height:3.5rem;
+    line-height:calc(3.5rem - 4px);
+    text-align:center;
+    width:3.5rem;
+    font-weight: 900;
+    font-size: 1.125rem !important;
+    margin-right: 0.5rem !important;
+    margin-left: 0.5rem !important;
+  }
+
+  .step-name {
+    text-align: center !important;
+    font-size: 1rem !important;
+    font-weight: bolder !important;
+    display: none;
+  }
+
+  .step-active {
+    flex: 1;
+  }
+}
+
+.step-active .step-index{
+  background-color:#76b852;
+  color:#fff;
+}

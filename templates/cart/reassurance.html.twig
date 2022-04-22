@@ -1,0 +1,60 @@
+<div class="col-12 col-md-8 order-3">
+    <div class="card card-shadow mb-3">
+        <div class="card-body">
+            <ul class="reassurance">
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                    </svg>
+                    {{ 'Livraison en France métropolitaine dès <strong>7,48 € HT</strong>'|trans|raw }}
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                    </svg>
+                    {{ 'Livraison <strong>gratuite</strong> à partir de <strong>200 € HT</strong> d’achats'|trans|raw }}
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                    </svg>
+                    {{ 'Délais de livraison : entre <strong>3 à 5 jours ouvrés</strong>'|trans|raw }}
+                </li>
+                <li>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-check-lg" viewBox="0 0 16 16">
+                        <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z"/>
+                    </svg>
+                    {{ 'Paiement CB ou virement <strong>100% sécurisé</strong>'|trans|raw }}
+                    <div class="d-inline-block mt-2">
+                        <ul class="payments">
+                            <li><img src="{{ asset('build/images/logo_white_carte_bleue.jpg') }}" alt="Carte Bleue"></li>
+                            <li><img src="{{ asset('build/images/logo_white_visa.jpg') }}" alt="Visa"></li>
+                            <li><img src="{{ asset('build/images/logo_white_paypal.jpg') }}" alt="Paypal"></li>
+                            <li><img src="{{ asset('build/images/logo_white_mandat.jpg') }}" alt="Mandat"></li>
+                            <li><img src="{{ asset('build/images/logo_white_bank_transfer_fr.jpg') }}" alt="Payment par virement bancaire"></li>
+                            <li><img src="{{ asset('build/images/logo_white_installment_3_fr.jpg') }}" alt="Payment 3x sans frais"></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="reassurance-order">
+        <hr class="d-none d-md-block">
+        <ul class="row flex-column flex-md-row justify-content-between row-cols-md-3 mt-4">
+            <li class="d-flex flex-row flex-md-column align-items-center mb-4">
+                <span class="reassurance-order-icon d-flex justify-content-center align-items-center"><i class="f-icon f-icon-cadenas"></i></span>
+                <p class="text-center fw-bolder mb-0 ml-4 ml-md-0 mt-md-2">{{ 'Paiement<br>100% sécurisé'|trans|raw }}</p>
+            </li>
+            <li class="d-flex flex-row flex-md-column align-items-center mb-4">
+                <span class="reassurance-order-icon d-flex justify-content-center align-items-center"><i class="f-icon f-icon-truck"></i></span>
+                <p class="text-center fw-bolder mb-0 ml-4 ml-md-0 mt-md-2">{{ 'Livraison gratuite<br>à partir de 200€ HT'|trans|raw }}</p>
+            </li>
+            <li class="d-flex flex-row flex-md-column align-items-center mb-4">
+                <span class="reassurance-order-icon d-flex justify-content-center align-items-center"><i class="f-icon f-icon-parcel-shipping"></i></span>
+                <p class="text-center fw-bolder mb-0 ml-4 ml-md-0 mt-md-2">{{ 'Retours acceptés<br>sous 14 jours'|trans|raw }}</p>
+            </li>
+        </ul>
+        <hr class="d-none d-md-block">
+    </div>
+</div>

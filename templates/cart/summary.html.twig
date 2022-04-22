@@ -1,0 +1,58 @@
+<div class="col-12 col-md-4 float-md-right order-2 mb-3">
+    <h2 class="title d-none d-md-block">{{ 'Récapitulatif'|trans }}</h2>
+    <div class="card card-shadow">
+        <div class="card-body">
+            <form id="code-promo" action="">
+                <div class="fw-bold">{{ 'Un code promo ?'|trans }}</div>
+                <div class="row">
+                    <div class="col-7"><input type="text" class="form-control" placeholder="Ex: FARMITOO25"></div>
+                    <div class="col-5"><input type="submit" class="btn btn-valid btn-block" value="Valider"></div>
+                </div>
+                <hr>
+            </form>
+            <div>
+                <div class="fw-bold">
+                    <div class="d-flex justify-content-between">
+                        <span>{{ 'Sous total HT'|trans }}</span>
+                        <span>{{ order.totalPriceHtWithoutShipping|number_format(0, ',', ' ') ~ ' €' }}</span>
+                    </div>
+                </div>
+                {% if order.totalPriceHtWithoutShippingWithDiscount > 0 %}
+                    <br>
+                    <div class="fw-bold">
+                        <div class="d-flex justify-content-between text-warning">
+                            <span>{{ 'Sous total HT après réduction'|trans }}</span>
+                            <span>{{ order.totalPriceHtWithoutShippingWithDiscount|number_format(0, ',', ' ') ~ ' €' }}</span>
+                        </div>
+                    </div>
+                {% endif %}
+                <hr>
+                <div class="fw-bold">
+                    <div class="d-flex justify-content-between">
+                        <span>{{ 'Frais de port HT'|trans }} <i class="f-icon f-icon-info"></i></span>
+                        <span>{{ order.shippingFees|number_format(0, ',', ' ') ~ ' €' }}</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="fw-bold">
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>{{ 'Total HT'|trans }}</span>
+                        <span>{{ order.totalPriceHT|number_format(0, ',', ' ') ~ ' €' }}</span>
+                    </div>
+                    <div class="d-flex justify-content-between mb-2">
+                        <span>{{ 'TVA'|trans }}</span>
+                        <span>{{ order.totalTva|number_format(0, ',', ' ') ~ ' €' }}</span>
+                    </div>
+                    <div class="text-bigger d-flex justify-content-between mb-2">
+                        <span>{{ 'Total TTC'|trans }}</span>
+                        <span>{{ order.totalPrice|number_format(0, ',', ' ') ~ ' €' }}</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <a href="#" class="btn btn-primary btn-block">{{ 'Finaliser ma commande'|trans }}</a>
+                <a href="#" class="btn btn-outline btn-block">{{ 'Continuer mes achats'|trans }}</a>
+            </div>
+        </div>
+    </div>
+</div>

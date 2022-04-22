@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Farmitoo{% endblock %}
+
+{% block body %}
+    {# STEPS #}
+    {% include 'cart/steps.html.twig' %}
+
+    {# CORE #}
+    <div class="container">
+        <div class="row d-block">
+            {# RIGHT PANEL #}
+            {% include 'cart/summary.html.twig' with {'order': order} %}
+
+            {# LEFT PANEL #}
+            {% include 'cart/item-list.html.twig' with {'items': order.items} %}
+
+            {# REASSURANCE #}
+            {% include 'cart/reassurance.html.twig' %}
+        </div>
+    </div>
+{% endblock %}
